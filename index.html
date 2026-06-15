@@ -18,28 +18,28 @@
   --gas:#FF4D6A;--gas-dim:#FF4D6A14;
   --tx:#FFFFFF;--tx2:#9090A0;--tx3:#5A5A6A;--br:#FFFFFF0F
 }
-html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden}
-.app{display:flex;flex-direction:column;height:100vh;max-width:480px;margin:0 auto;background:var(--bg)}
+html,body{height:100%;width:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden}
+.app{display:flex;flex-direction:column;height:100%;width:100%;background:var(--bg)}
 .topbar{background:var(--s1);border-bottom:0.5px solid var(--br);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;padding-top:max(14px,env(safe-area-inset-top))}
 .logo-row{display:flex;align-items:center;gap:10px}
 .logo-txt{font-size:17px;font-weight:500;letter-spacing:3px;color:var(--tx)}
 .logo-txt span{color:var(--acc)}
 .chip{font-size:11px;color:var(--tx2);background:var(--s2);padding:5px 10px;border-radius:20px;border:0.5px solid var(--br)}
-.screens{flex:1;overflow:hidden;position:relative}
-.screen{position:absolute;inset:0;overflow-y:auto;display:none;flex-direction:column;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.screens{flex:1;overflow:hidden;position:relative;min-height:0}
+.screen{position:absolute;inset:0;overflow-y:auto;display:none;flex-direction:column;padding-bottom:12px;-webkit-overflow-scrolling:touch}
 .screen.active{display:flex}
-.nav{display:flex;background:var(--s1);border-top:0.5px solid var(--br);flex-shrink:0;padding-bottom:max(10px,env(safe-area-inset-bottom))}
-.nb{flex:1;padding:12px 4px 8px;font-size:10px;color:var(--tx3);background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;letter-spacing:0.3px;transition:color 0.15s}
+.nav{display:flex;background:var(--s1);border-top:0.5px solid var(--br);flex-shrink:0;width:100%;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+.nb{flex:1;padding:12px 4px 8px;font-size:10px;color:var(--tx3);background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;letter-spacing:0.3px;transition:color 0.15s;-webkit-appearance:none}
 .nb svg{width:22px;height:22px;stroke:var(--tx3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.15s}
 .nb.active{color:var(--acc)}
 .nb.active svg{stroke:var(--acc)}
-.bal-block{padding:24px 20px 20px}
+.bal-block{padding:24px 20px 16px}
 .bal-eyebrow{font-size:11px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .bal-num{font-size:38px;font-weight:300;color:var(--tx);letter-spacing:-1.5px;line-height:1;margin-bottom:4px}
 .bal-num sup{font-size:15px;font-weight:400;color:var(--tx2);vertical-align:super;margin-right:2px}
-.bal-sub{display:flex;gap:20px;margin-top:16px}
+.bal-sub{display:flex;gap:20px;margin-top:14px}
 .bs-item{display:flex;align-items:center;gap:7px}
-.bs-dot{width:8px;height:8px;border-radius:2px}
+.bs-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .bs-dot.ing{background:var(--ing)}
 .bs-dot.gas{background:var(--gas)}
 .bs-label{font-size:12px;color:var(--tx2)}
@@ -48,7 +48,7 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .bs-val.gas{color:var(--gas)}
 .input-zone{margin:0 14px 14px;background:var(--s1);border:0.5px solid var(--br);border-radius:18px;overflow:hidden}
 .mode-tabs{display:flex;padding:10px 10px 0}
-.mt{flex:1;padding:10px 6px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;border-radius:12px;transition:background 0.15s}
+.mt{flex:1;padding:10px 6px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;border-radius:12px;transition:background 0.15s;-webkit-appearance:none}
 .mt svg{width:26px;height:26px;stroke:var(--tx3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.15s}
 .mt span{font-size:10px;color:var(--tx3);letter-spacing:0.5px;transition:color 0.15s}
 .mt.active{background:var(--acc-dim)}
@@ -56,19 +56,21 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .mt.active span{color:var(--acc)}
 .input-body{padding:14px}
 .txt-row{display:flex;gap:8px}
-.txt-row input{flex:1;padding:13px 14px;background:var(--s2);border:0.5px solid var(--br);border-radius:12px;color:var(--tx);font-size:15px;outline:none;transition:border-color 0.2s}
+.txt-row input{flex:1;padding:13px 14px;background:var(--s2);border:0.5px solid var(--br);border-radius:12px;color:var(--tx);font-size:15px;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
 .txt-row input:focus{border-color:var(--acc)}
 .txt-row input::placeholder{color:var(--tx3)}
-.send-btn{padding:13px 16px;background:var(--acc);border:none;border-radius:12px;color:#000;font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.send-btn{padding:13px 16px;background:var(--acc);border:none;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-appearance:none}
 .send-btn svg{width:20px;height:20px;stroke:#000;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mic-big{width:100%;padding:20px;background:var(--s2);border:0.5px solid var(--br);border-radius:12px;color:var(--tx);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:all 0.2s}
+.mic-big{width:100%;padding:20px;background:var(--s2);border:0.5px solid var(--br);border-radius:12px;color:var(--tx);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:all 0.2s;-webkit-appearance:none;border:none}
 .mic-big svg{width:30px;height:30px;stroke:var(--acc);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.mic-big.rec{background:var(--gas-dim);border-color:var(--gas)}
+.mic-big.rec{background:var(--gas-dim);border:0.5px solid var(--gas) !important;animation:breathe 1.2s ease-in-out infinite}
 .mic-big.rec svg{stroke:var(--gas)}
-@keyframes breathe{0%,100%{box-shadow:0 0 0 0 #FF4D6A22}50%{box-shadow:0 0 0 8px #FF4D6A00}}
-.mic-big.rec{animation:breathe 1.2s ease-in-out infinite}
-.cam-big{width:100%;padding:20px;background:none;border:1px dashed var(--s3);border-radius:12px;color:var(--tx2);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:all 0.2s}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 #FF4D6A22}50%{box-shadow:0 0 0 10px #FF4D6A00}}
+.cam-big{width:100%;padding:20px;background:none;border:1px dashed var(--s3);border-radius:12px;color:var(--tx2);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:all 0.2s;-webkit-appearance:none}
 .cam-big svg{width:30px;height:30px;stroke:var(--tx2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.voice-status{margin-top:10px;background:var(--s2);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--tx2);text-align:center;display:none;line-height:1.5}
+.voice-status.show{display:block}
+.voice-transcript{font-size:13px;color:var(--acc);margin-top:4px;font-style:italic}
 .proc-bar{height:2px;background:var(--s2);border-radius:2px;margin:12px 0 4px;overflow:hidden;display:none}
 .proc-bar.on{display:block}
 .proc-bar::after{content:'';display:block;height:100%;width:35%;background:var(--acc);animation:sw 1s linear infinite}
@@ -93,7 +95,7 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .empty svg{width:48px;height:48px;stroke:var(--s3);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 12px}
 .empty p{font-size:13px;line-height:1.6}
 .rep-zone{padding:14px;display:flex;flex-direction:column;gap:10px}
-.rep-row{background:var(--s1);border:0.5px solid var(--br);border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:background 0.15s}
+.rep-row{background:var(--s1);border:0.5px solid var(--br);border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:background 0.15s;-webkit-appearance:none;width:100%}
 .rep-row:active{background:var(--s2)}
 .rep-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rep-ico.d{background:var(--acc-dim)}
@@ -103,7 +105,7 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .rep-ico.d svg{stroke:var(--acc)}
 .rep-ico.w svg{stroke:#A78BFA}
 .rep-ico.m svg{stroke:#60A5FA}
-.rep-info{flex:1}
+.rep-info{flex:1;text-align:left}
 .rep-title{font-size:14px;font-weight:500;color:var(--tx);margin-bottom:2px}
 .rep-sub{font-size:12px;color:var(--tx2)}
 .rep-arr svg{width:20px;height:20px;stroke:var(--tx3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -121,15 +123,14 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .hday-count{font-size:11px;color:var(--tx3)}
 .hday-right{display:flex;align-items:center;gap:8px}
 .hday-bal{font-size:14px;font-weight:500}
-.hday-chevron{width:16px;height:16px;stroke:var(--tx3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.2s}
 .hday-entries{display:none;padding:0 16px 12px;border-top:0.5px solid var(--br)}
 .hentry{font-size:12px;padding:7px 0;display:flex;justify-content:space-between;border-bottom:0.5px solid var(--br);gap:8px}
 .hentry:last-child{border-bottom:none}
 .hentry-name{color:var(--tx2);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .error-banner{background:var(--gas-dim);border:0.5px solid var(--gas);border-radius:12px;padding:10px 14px;margin:0 14px 10px;font-size:12px;color:var(--gas);display:none}
 .error-banner.show{display:block}
-.toast-wrap{position:fixed;bottom:calc(72px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:999;pointer-events:none}
-.toast{background:var(--s2);color:var(--tx);border:0.5px solid var(--br);padding:10px 20px;border-radius:20px;font-size:12px;opacity:0;transition:opacity 0.3s;white-space:nowrap;display:block}
+.toast-wrap{position:fixed;bottom:80px;left:0;right:0;display:flex;justify-content:center;z-index:999;pointer-events:none}
+.toast{background:var(--s2);color:var(--tx);border:0.5px solid var(--br);padding:10px 20px;border-radius:20px;font-size:12px;opacity:0;transition:opacity 0.3s;white-space:nowrap}
 .toast.show{opacity:1}
 input[type=file]{display:none}
 </style>
@@ -138,7 +139,7 @@ input[type=file]{display:none}
 <div class="app">
   <div class="topbar">
     <div class="logo-row">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="10" fill="#C8FF00"/>
         <ellipse cx="16" cy="19" rx="9" ry="7" fill="#1a1a1a"/>
         <rect x="7" y="12" width="18" height="4" rx="2" fill="#1a1a1a"/>
@@ -171,6 +172,7 @@ input[type=file]{display:none}
           <div class="bs-item"><div class="bs-dot gas"></div><span class="bs-label">Gastos</span><span class="bs-val gas" id="h-gas">$0</span></div>
         </div>
       </div>
+
       <div class="input-zone">
         <div class="mode-tabs">
           <button class="mt active" id="mt0" onclick="setMode(0)">
@@ -178,7 +180,7 @@ input[type=file]{display:none}
             <span>Voz</span>
           </button>
           <button class="mt" id="mt1" onclick="setMode(1)">
-            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M10 14h4M18 14h.01"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M6 14h.01M10 14h4"/></svg>
             <span>Texto</span>
           </button>
           <button class="mt" id="mt2" onclick="setMode(2)">
@@ -187,12 +189,18 @@ input[type=file]{display:none}
           </button>
         </div>
         <div class="input-body">
+          <!-- VOZ -->
           <div id="ui0">
             <button class="mic-big" id="mic-btn" onclick="toggleRec()">
               <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-              <span id="mic-lbl">Toca para grabar</span>
+              <span id="mic-lbl">Toca para hablar</span>
             </button>
+            <div class="voice-status" id="voice-status">
+              <div id="voice-hint">Escuchando... habla ahora</div>
+              <div class="voice-transcript" id="voice-transcript"></div>
+            </div>
           </div>
+          <!-- TEXTO -->
           <div id="ui1" style="display:none">
             <div class="txt-row">
               <input type="text" id="txt" placeholder="me gasté 8.000 en almuerzo..." onkeydown="if(event.key==='Enter')sendTxt()"/>
@@ -201,6 +209,7 @@ input[type=file]{display:none}
               </button>
             </div>
           </div>
+          <!-- FOTO -->
           <div id="ui2" style="display:none">
             <button class="cam-big" onclick="document.getElementById('fi').click()">
               <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
@@ -212,6 +221,7 @@ input[type=file]{display:none}
           <div class="proc-msg" id="pmsg"></div>
         </div>
       </div>
+
       <div class="error-banner" id="err-banner"></div>
       <div class="section-hdr" id="home-sh" style="display:none">últimos registros</div>
       <div class="elist" id="home-list"></div>
@@ -234,27 +244,21 @@ input[type=file]{display:none}
     <!-- REPORTES -->
     <div class="screen" id="screen-rep">
       <div class="rep-zone">
-        <div class="rep-row" onclick="genXls('day')">
-          <div class="rep-ico d">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
-          </div>
+        <button class="rep-row" onclick="genXls('day')">
+          <div class="rep-ico d"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div class="rep-info"><div class="rep-title">Reporte diario</div><div class="rep-sub">Excel con todo lo de hoy</div></div>
           <div class="rep-arr"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-        </div>
-        <div class="rep-row" onclick="genXls('week')">
-          <div class="rep-ico w">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
+        </button>
+        <button class="rep-row" onclick="genXls('week')">
+          <div class="rep-ico w"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h8"/></svg></div>
           <div class="rep-info"><div class="rep-title">Reporte semanal</div><div class="rep-sub">Últimos 7 días</div></div>
           <div class="rep-arr"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-        </div>
-        <div class="rep-row" onclick="genXls('month')">
-          <div class="rep-ico m">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h8M8 18h5"/></svg>
-          </div>
+        </button>
+        <button class="rep-row" onclick="genXls('month')">
+          <div class="rep-ico m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h8M8 18h5"/></svg></div>
           <div class="rep-info"><div class="rep-title">Reporte mensual</div><div class="rep-sub">Mes en curso completo</div></div>
           <div class="rep-arr"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-        </div>
+        </button>
         <div class="auto-row">
           <div class="auto-pulse"></div>
           <div class="auto-txt"><b>Auto-cierre 2:00 AM</b> — el reporte del día se genera solo si no lo descargas antes.</div>
@@ -294,20 +298,18 @@ input[type=file]{display:none}
 </div>
 
 <div class="toast-wrap"><div class="toast" id="toast"></div></div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 const SCRIPT='https://script.google.com/macros/s/AKfycbzA57Om7Y6Vu3_Tw-zrqKuyWQuRmwoEYGPzvGJoopyhTOMn2UimJsH5f42FFEvUYvEL/exec';
 const GEMINI_KEY='AIzaSyAjKJFYHygToAuS5Vy-PqCry98gixthHVE';
 const GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key='+GEMINI_KEY;
 
-let mode=0,rec=false,mr=null,chunks=[],entries=[],bal={ing:0,gas:0};
+let entries=[],bal={ing:0,gas:0};
+let recognition=null,isListening=false;
 
 const SVG_UP='<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
 const SVG_DOWN='<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>';
-const SVG_CHEVRON='<svg class="hday-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>';
-const SVG_EMPTY_REC='<svg viewBox="0 0 24 24" style="width:48px;height:48px;stroke:var(--s3);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 12px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg>';
-const SVG_WIFI='<svg viewBox="0 0 24 24" style="width:48px;height:48px;stroke:var(--s3);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 12px"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>';
+const SVG_CHEVRON='<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#5A5A6A;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="6 9 12 15 18 9"/></svg>';
 
 function fmt(n){return '$'+Math.abs(Math.round(n)).toLocaleString('es-CO')}
 function fmtB(n){return Math.round(n).toLocaleString('es-CO')}
@@ -324,11 +326,11 @@ function go(id,btn){
 }
 
 function setMode(m){
-  mode=m;
   [0,1,2].forEach(i=>{
     document.getElementById('mt'+i).classList.toggle('active',i===m);
     document.getElementById('ui'+i).style.display=i===m?'block':'none';
   });
+  if(m!==0&&isListening)stopListening();
 }
 
 function toast(msg,ms=2800){
@@ -336,16 +338,71 @@ function toast(msg,ms=2800){
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),ms);
 }
-
 function showErr(msg){
   const b=document.getElementById('err-banner');
   b.textContent=msg;b.classList.add('show');
-  setTimeout(()=>b.classList.remove('show'),5000);
+  setTimeout(()=>b.classList.remove('show'),6000);
 }
-
 function setProc(on,msg=''){
   document.getElementById('proc').className='proc-bar'+(on?' on':'');
   document.getElementById('pmsg').textContent=msg;
+}
+
+// ── WEB SPEECH API (nativa del cel, sin subir audio) ──
+function initSpeech(){
+  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SpeechRecognition)return null;
+  const r=new SpeechRecognition();
+  r.lang='es-CO';r.continuous=false;r.interimResults=true;r.maxAlternatives=1;
+  return r;
+}
+
+function toggleRec(){
+  if(isListening){stopListening();return;}
+  startListening();
+}
+
+function startListening(){
+  recognition=initSpeech();
+  if(!recognition){
+    showErr('Tu navegador no soporta reconocimiento de voz. Usa Chrome.');
+    return;
+  }
+  isListening=true;
+  document.getElementById('mic-btn').classList.add('rec');
+  document.getElementById('mic-lbl').textContent='Toca para detener';
+  document.getElementById('voice-status').classList.add('show');
+  document.getElementById('voice-hint').textContent='Escuchando... habla ahora';
+  document.getElementById('voice-transcript').textContent='';
+
+  recognition.onresult=e=>{
+    let interim='',final='';
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      if(e.results[i].isFinal)final+=e.results[i][0].transcript;
+      else interim+=e.results[i][0].transcript;
+    }
+    document.getElementById('voice-transcript').textContent=final||interim;
+    if(final){
+      stopListening();
+      processText(final);
+    }
+  };
+  recognition.onerror=e=>{
+    stopListening();
+    if(e.error==='no-speech')showErr('No se detectó voz. Intenta de nuevo.');
+    else if(e.error==='not-allowed')showErr('Activa el micrófono en Chrome.');
+    else showErr('Error de micrófono: '+e.error);
+  };
+  recognition.onend=()=>{if(isListening)stopListening();};
+  recognition.start();
+}
+
+function stopListening(){
+  isListening=false;
+  if(recognition)try{recognition.stop();}catch(e){}
+  document.getElementById('mic-btn').classList.remove('rec');
+  document.getElementById('mic-lbl').textContent='Toca para hablar';
+  document.getElementById('voice-status').classList.remove('show');
 }
 
 async function callGemini(text,imgBase64=null,imgMime='image/jpeg'){
@@ -353,25 +410,43 @@ async function callGemini(text,imgBase64=null,imgMime='image/jpeg'){
   if(imgBase64)parts.push({inline_data:{mime_type:imgMime,data:imgBase64}});
   parts.push({text:`Eres asistente de contabilidad personal colombiana. Extrae los datos financieros y responde SOLO con JSON válido sin markdown ni backticks:
 {"tipo":"Ingreso" o "Gasto","monto":número entero sin puntos ni comas,"descripcion":"descripción corta máximo 40 chars","categoria":"categoría detectada","raw":"texto original"}
-Si hay imagen de factura extrae los datos. Montos como 5.000 conviértelos a 5000. El mensaje: ${text}`});
+Si hay imagen de factura extrae sus datos. Montos como 5.000 conviértelos a 5000. El mensaje del usuario: ${text}`});
   const r=await fetch(GEMINI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts}]})});
-  if(!r.ok)throw new Error('Gemini error '+r.status);
+  if(!r.ok)throw new Error('Gemini '+r.status);
   const d=await r.json();
   const raw=d.candidates?.[0]?.content?.parts?.[0]?.text||'';
   return JSON.parse(raw.replace(/```json|```/g,'').trim());
 }
 
-async function callGeminiAudio(audioBase64,mime){
-  const parts=[
-    {inline_data:{mime_type:mime,data:audioBase64}},
-    {text:`Eres asistente de contabilidad personal colombiana. Transcribe el audio y extrae los datos financieros. Responde SOLO con JSON sin markdown:
-{"tipo":"Ingreso" o "Gasto","monto":número entero,"descripcion":"máx 40 chars","categoria":"categoría","raw":"transcripción"}`}
-  ];
-  const r=await fetch(GEMINI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts}]})});
-  if(!r.ok)throw new Error('Gemini error '+r.status);
-  const d=await r.json();
-  const raw=d.candidates?.[0]?.content?.parts?.[0]?.text||'';
-  return JSON.parse(raw.replace(/```json|```/g,'').trim());
+async function processText(text){
+  setProc(true,'Procesando con IA...');
+  try{
+    const p=await callGemini(text);
+    await save(p);
+    toast(p.tipo+': '+fmt(p.monto)+' — '+p.descripcion);
+  }catch(e){showErr('No se pudo procesar. Intenta de nuevo.');}
+  setProc(false);
+}
+
+async function sendTxt(){
+  const inp=document.getElementById('txt'),v=inp.value.trim();
+  if(!v)return;
+  inp.value='';
+  processText(v);
+}
+
+async function handlePhoto(input){
+  const f=input.files[0];if(!f)return;
+  setProc(true,'Leyendo factura con IA...');
+  const reader=new FileReader();
+  reader.onload=async()=>{
+    try{
+      const p=await callGemini('Analiza esta imagen de factura o recibo. Extrae el monto total y la descripción.',reader.result.split(',')[1],f.type||'image/jpeg');
+      await save(p);toast('Factura: '+fmt(p.monto));
+    }catch(e){showErr('No se pudo leer la imagen.');}
+    setProc(false);
+  };
+  reader.readAsDataURL(f);input.value='';
 }
 
 async function save(p){
@@ -408,7 +483,7 @@ function renderAll(){
   const hl=document.getElementById('home-list'),ll=document.getElementById('log-list'),hs=document.getElementById('home-sh');
   if(!entries.length){
     if(hl)hl.innerHTML='';if(hs)hs.style.display='none';
-    if(ll)ll.innerHTML=`<div class="empty">${SVG_EMPTY_REC}<p>Sin registros hoy.<br>Usa el micrófono, texto o foto.</p></div>`;
+    if(ll)ll.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><p>Sin registros hoy.<br>Usa el micrófono, texto o foto.</p></div>';
     return;
   }
   if(hs)hs.style.display='block';
@@ -424,69 +499,13 @@ async function loadToday(){
   }catch(e){renderAll();}
 }
 
-async function sendTxt(){
-  const inp=document.getElementById('txt'),v=inp.value.trim();
-  if(!v)return;
-  setProc(true,'Procesando con Gemini...');
-  try{const p=await callGemini(v);await save(p);inp.value='';toast(p.tipo+': '+fmt(p.monto)+' — '+p.descripcion);}
-  catch(e){showErr('No se pudo procesar. Verifica tu conexión.');}
-  setProc(false);
-}
-
-async function toggleRec(){
-  if(rec){
-    rec=false;if(mr)mr.stop();
-    document.getElementById('mic-btn').classList.remove('rec');
-    document.getElementById('mic-lbl').textContent='Toca para grabar';
-    return;
-  }
-  try{
-    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
-    const mimeType=MediaRecorder.isTypeSupported('audio/webm')?'audio/webm':'audio/mp4';
-    mr=new MediaRecorder(stream,{mimeType});
-    chunks=[];
-    mr.ondataavailable=e=>chunks.push(e.data);
-    mr.onstop=async()=>{
-      stream.getTracks().forEach(t=>t.stop());
-      setProc(true,'Procesando audio con Gemini...');
-      const blob=new Blob(chunks,{type:mimeType});
-      const reader=new FileReader();
-      reader.onload=async()=>{
-        try{
-          const p=await callGeminiAudio(reader.result.split(',')[1],mimeType);
-          await save(p);toast(p.tipo+': '+fmt(p.monto)+' — '+p.descripcion);
-        }catch(e){showErr('No se pudo interpretar el audio.');}
-        setProc(false);
-      };
-      reader.readAsDataURL(blob);
-    };
-    mr.start();rec=true;
-    document.getElementById('mic-btn').classList.add('rec');
-    document.getElementById('mic-lbl').textContent='Grabando — toca para detener';
-  }catch(e){showErr('Activa el micrófono en tu navegador.');}
-}
-
-async function handlePhoto(input){
-  const f=input.files[0];if(!f)return;
-  setProc(true,'Leyendo factura con Gemini...');
-  const reader=new FileReader();
-  reader.onload=async()=>{
-    try{
-      const p=await callGemini('Analiza esta imagen de factura o recibo y extrae el monto y descripción.',reader.result.split(',')[1],f.type||'image/jpeg');
-      await save(p);toast('Factura: '+fmt(p.monto));
-    }catch(e){showErr('No se pudo leer la imagen.');}
-    setProc(false);
-  };
-  reader.readAsDataURL(f);input.value='';
-}
-
 async function loadHist(){
   const el=document.getElementById('hist-list');
   try{
     const r=await fetch(SCRIPT+'?action=getHistory');
     const d=await r.json();
     if(!d.history||!Object.keys(d.history).length){
-      el.innerHTML=`<div class="empty">${SVG_WIFI}<p>Sin historial aún.<br>Los días anteriores aparecerán aquí.</p></div>`;
+      el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><polyline points="12 8 12 12 14 14"/><path d="M3.05 11a9 9 0 1 1 .5 4"/><polyline points="3 16 3 11 8 11"/></svg><p>Sin historial aún.</p></div>';
       return;
     }
     const days=Object.entries(d.history).sort((a,b)=>b[0].localeCompare(a[0]));
@@ -501,7 +520,7 @@ async function loadHist(){
         <div class="hday-entries">${(info.entries||[]).map(e=>`<div class="hentry"><span class="hentry-name">${e.descripcion}</span><span style="color:${e.tipo==='Ingreso'?'#00E096':'#FF4D6A'};font-size:12px;font-weight:500;flex-shrink:0">${e.tipo==='Ingreso'?'+':'-'}${fmt(e.monto)}</span></div>`).join('')}</div>
       </div>`;
     }).join('');
-  }catch(e){el.innerHTML=`<div class="empty">${SVG_WIFI}<p>Sin conexión con el servidor.</p></div>`;}
+  }catch(e){el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg><p>Sin conexión.</p></div>';}
 }
 
 function toggleDay(h){
@@ -538,7 +557,7 @@ async function genXls(type){
       rows.push([],['','TOTAL INGRESOS',tI,'',''],['','TOTAL GASTOS',tG,'',''],['','BALANCE',tI-tG,'','']);
       buildXls(rows,`ContX3_${type==='week'?'Semana':'Mes'}_${now.toISOString().split('T')[0]}.xlsx`);
     }
-  }catch(e){showErr('Error generando Excel. Revisa tu conexión.');}
+  }catch(e){showErr('Error generando Excel.');}
 }
 
 function buildXls(rows,file){
@@ -560,3 +579,4 @@ loadToday();
 </script>
 </body>
 </html>
+
